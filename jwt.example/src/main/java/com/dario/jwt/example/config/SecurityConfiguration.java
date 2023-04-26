@@ -24,13 +24,14 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/api/v1/demo-controller/administrator").hasRole("ADMIN")
                 .requestMatchers("/api/v1/auth/**")
-                .permitAll()
+                //.permitAll()
                 //.requestMatchers("/api/v1/demo-controller/user")
                 //.hasRole("USER") // Whitelist
                 //.requestMatchers("/api/v1/demo-controller/administrator")
                 //.hasRole("ADMIN") // Whitelist
-                //.permitAll()
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

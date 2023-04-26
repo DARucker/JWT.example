@@ -19,6 +19,7 @@ public class JwtService {
 
     private static final String SECRET_KEY = "6B586E3272357538782F413F4428472B4B6250655368566D5971337336763979"; //https://allkeysgenerator.com/random/Security-Encryption-key-generator.aspx
     public String extractUsername(String token) {
+
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -29,7 +30,6 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails){
         return generateToken(new HashMap<>(), userDetails);
-
     }
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails){
@@ -50,7 +50,6 @@ public class JwtService {
     }
 
     private boolean isTokenExpired(String token) {
-
         return extractExpiration(token).before(new Date());
     }
 

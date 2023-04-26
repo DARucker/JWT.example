@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/demo-controller")
 public class DemoController {
 
-    @GetMapping
+
+    @GetMapping("/administrator")
     public ResponseEntity<String> sayHello(){
-        return ResponseEntity.ok("Hello World from secured End Point");
+        return ResponseEntity.ok("Hello Administrator from secured End Point");
     }
 
+    @GetMapping("/user")
+    public ResponseEntity<String> sayGoodbay(){
+        return ResponseEntity.ok("Hello USER from secured End Point");
+    }
 }

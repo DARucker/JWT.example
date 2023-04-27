@@ -24,8 +24,7 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/demo-controller/administrator").hasRole("ADMIN")
-                .requestMatchers("/api/v1/auth/**")
+                .requestMatchers("/api/v1/auth/**", "/swagger-ui/**", "/jwtexample-openapi")//"/javainuse-openapi")
                 //.permitAll()
                 //.requestMatchers("/api/v1/demo-controller/user")
                 //.hasRole("USER") // Whitelist
